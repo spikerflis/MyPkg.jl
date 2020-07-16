@@ -1,6 +1,7 @@
 
 using Test
 using MyPkg
+using Distributions
 
 x = rand(100)
 y = rand(100)
@@ -21,3 +22,10 @@ q = 0.1
 
 @test P2() isa QuantileMethod
 @test quantile(x, 0.2, P2()) isa Float64
+
+
+D = MixtureModel(Normal[Normal(1, 0.4), Normal(-3, 0.3)])
+pts = rand(D, 100)
+gr = -6.0:0.1:6.0
+
+@test mykde(gr, pts, h = 0.5) isa Vector{Float64}

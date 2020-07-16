@@ -4,4 +4,5 @@ module MyPkg
     include("statfuncs.jl")
     include("streamfuncs.jl")
     include("leastsquares.jl")
+    include("kde.jl")
 end
